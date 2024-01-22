@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+
+:root {
+	--icon-size: 30px;
+	--sidebar-font: 'Roboto', sans-serif;
+}
+
 body {
 	background-color: #D3D3D3;
 	height: 100vh;
@@ -6,19 +13,57 @@ body {
 	padding: 0;
 	display: grid;
 	grid-template-rows: 1fr 4fr;
-	grid-template-columns: 1fr 3fr;
+	grid-template-columns: minmax(200px, 250px) 3fr;
 	gap: 12px;
 }
 
-div {
+body > div {
 	background-color: white;
-	box-shadow: 10px 5px 5px gray;
+	box-shadow: 5px 5px 10px gray;
 }
 
 .sidebar {
 	background-color: #3882F6;
+	color: white;
+	font-family: var(--sidebar-font);
 	grid-row: 1 / -1;
+	padding: 18px;
+
+	display: grid;
+        grid-template-rows: calc(2 * var(--icon-size)) calc(8 * var(--icon-size)) calc(4 * var(--icon-size));
+        gap: 18px;
+
 }
+
+#logo {
+	display: grid;
+	justify-content: center;
+	align-self: center;
+	height: 80%;
+	font-size: 1.5rem;
+}
+
+.sidebar-main,
+.sidebar-help {
+	display: grid;
+	grid-template-rows: repeat(autofit, var(--icon-size));
+	align-items: center;
+}
+
+.icon-container {
+	display: grid;	
+	grid-template-columns: 1fr 4fr;
+	align-items: center;
+	padding: 0;
+}
+
+.icon {
+	height: var(--icon-size);
+	width: var(--icon-size);
+	background-color: white;
+	border-radius:  50%;
+}
+
 
 .header {
 	grid-area: 1 / 2 / 2 / -1;

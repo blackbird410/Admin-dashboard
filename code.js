@@ -1,8 +1,9 @@
 // Adding layout elements
+const body = document.body
 addLayout()
+addSidebarElements()
 
 function addLayout() {
-	const body = document.body;
 	const sidebar = document.createElement('div');
 	const header = document.createElement('div');
 	const main = document.createElement('div');
@@ -20,7 +21,65 @@ function addLayout() {
 	body.appendChild(header);
 	body.appendChild(sidebar);
 	body.appendChild(main);
-	//body.appendChild(projectContainer);
-	//body.appendChild(announcementContainer);
-	//body.appendChild(trendingContainer);
+}
+
+function addSidebarElements() {
+	const sidebar = document.querySelector('.sidebar');
+	const logo = document.createElement('div');
+	const sidebarMain = document.createElement('div');
+	const help = document.createElement('div');
+
+	logo.classList.add('icon-container');
+	logo.setAttribute('id', 'logo');
+	sidebarMain.classList.add('sidebar-main');
+	help.classList.add('sidebar-help');
+	
+	const logoIcon = document.createElement('div');
+	const logoText = document.createElement('div');
+	logoText.textContent = 'Dashboard';
+	logoIcon.classList.add('icon');
+
+	logo.appendChild(logoIcon);
+	logo.appendChild(logoText);
+
+	const mainItems = ['Home', 'Profile', 'Message', 'History', 'Tasks', 'Communities'];
+	const helpItems = ['Settings', 'Support', 'Privacy'];
+
+	mainItems.forEach(item => {
+		const itemContainer = document.createElement('div');
+		const itemIcon = document.createElement('div');
+		const itemText = document.createElement('div');
+		
+		itemContainer.classList.add('icon-container');
+		itemIcon.classList.add('icon');
+		itemText.classList.add('icon-name');
+
+		itemText.textContent = item;
+
+		itemContainer.appendChild(itemIcon);
+		itemContainer.appendChild(itemText);
+		sidebarMain.appendChild(itemContainer);
+	});
+
+
+	helpItems.forEach(item => {
+		const itemContainer = document.createElement('div');
+                const itemIcon = document.createElement('div');
+                const itemText = document.createElement('div');
+
+                itemContainer.classList.add('icon-container');
+                itemIcon.classList.add('icon');
+                itemText.classList.add('icon-name');
+
+                itemText.textContent = item;
+
+                itemContainer.appendChild(itemIcon);
+                itemContainer.appendChild(itemText);
+               	help.appendChild(itemContainer);
+
+	});
+
+	sidebar.appendChild(logo);
+	sidebar.appendChild(sidebarMain);
+	sidebar.appendChild(help);
 }
