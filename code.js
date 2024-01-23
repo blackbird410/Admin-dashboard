@@ -1,7 +1,8 @@
 // Adding layout elements
-const body = document.body
-addLayout()
-addSidebarElements()
+const body = document.body;
+addLayout();
+addSidebarElements();
+addHeaderElements();
 
 function addLayout() {
 	const sidebar = document.createElement('div');
@@ -83,3 +84,71 @@ function addSidebarElements() {
 	sidebar.appendChild(sidebarMain);
 	sidebar.appendChild(help);
 }
+
+
+function addHeaderElements(){
+	const header = document.querySelector('.header');
+	const searchContainer = document.createElement('div');
+	const notificationContainer = document.createElement('div');
+	const userWelcome = document.createElement('div');
+	const btnContainer = document.createElement('div');
+
+	const searchIcon = document.createElement('div');
+	searchIcon.classList.add('icon');
+
+	const searchBar = document.createElement('input');
+	
+	searchContainer.classList.add('search-container');
+	searchContainer.appendChild(searchIcon);
+	searchContainer.appendChild(searchBar);
+
+	const notificationIcon = document.createElement('div');
+	notificationIcon.classList.add('icon');
+
+	const adminIcon = document.createElement('div');
+	adminIcon.classList.add('icon');
+
+	const adminName = document.createElement('div');
+	adminName.classList.add('admin-name');
+	adminName.setAttribute('id', 'notif-admin-name');
+	adminName.textContent = 'Neil Rigaud';
+
+	notificationContainer.classList.add('notification-container');
+	notificationContainer.appendChild(notificationIcon);
+	notificationContainer.appendChild(adminIcon);
+	notificationContainer.appendChild(adminName);
+
+	header.appendChild(searchContainer);
+	header.appendChild(notificationContainer);
+	header.appendChild(userWelcome);
+	header.appendChild(btnContainer);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
