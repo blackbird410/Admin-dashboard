@@ -3,6 +3,7 @@ const body = document.body;
 addLayout();
 addSidebarElements();
 addHeaderElements();
+addMainElements();
 
 function addLayout() {
 	const sidebar = document.createElement('div');
@@ -90,13 +91,14 @@ function addHeaderElements(){
 	const header = document.querySelector('.header');
 	const searchContainer = document.createElement('div');
 	const notificationContainer = document.createElement('div');
-	const userWelcome = document.createElement('div');
+	const adminWelcome = document.createElement('div');
 	const btnContainer = document.createElement('div');
 
 	const searchIcon = document.createElement('div');
 	searchIcon.classList.add('icon');
 
 	const searchBar = document.createElement('input');
+	searchBar.setAttribute('id', 'search');
 	
 	searchContainer.classList.add('search-container');
 	searchContainer.appendChild(searchIcon);
@@ -118,13 +120,70 @@ function addHeaderElements(){
 	notificationContainer.appendChild(adminIcon);
 	notificationContainer.appendChild(adminName);
 
+	adminWelcome.classList.add('admin-welcome');
+	adminWelcome.appendChild(adminIcon.cloneNode(true));
+	const hello = document.createElement('div');
+	hello.textContent = "Hi there,";
+	adminWelcome.appendChild(hello);
+	const name = adminName.cloneNode(true);
+	name.removeAttribute('id');
+	name.setAttribute('id', 'welcome-admin-name');
+	name.textContent = "Neil Rigaud (@blackbird410)"
+	adminWelcome.appendChild(name);
+
+	btnContainer.classList.add('btn-container');
+	const buttons = ['New', 'Upload', 'Share'];
+	buttons.forEach(btnName => {
+		const btn = document.createElement('div');
+		btn.classList.add('btn');
+		btn.textContent = btnName;
+		btnContainer.appendChild(btn);
+	});
+
 	header.appendChild(searchContainer);
 	header.appendChild(notificationContainer);
-	header.appendChild(userWelcome);
+	header.appendChild(adminWelcome);
 	header.appendChild(btnContainer);
 }
 
+function addMainElements() {
+	const main = document.querySelector('.main');
 
+	const projects = document.createElement('div');
+	const announcements = document.createElement('div');
+	const trending = document.createElement('div');
+
+	projects.classList.add('projects');
+	announcements.classList.add('announcements');
+	trending.classList.add('trending');
+
+	const headers = ['Your Projects', 'Announcements', 'Trending'];
+	headers.forEach(headerTitle => {
+		const header = document.createElement('div');
+		header.classList.add('header');
+		header.textContent = headerTitle;
+
+		switch(headerTitle)
+		{
+			case 'Your Projects':
+				projects.appendChild(header);
+				break;
+			case 'Announcements':
+				announcements.appendChild(header);
+				break;
+			case 'Trending':
+				trending.appendChild(header);
+				break;
+			default:
+				break;
+		}
+	});
+
+
+	main.appendChild(projects);
+	main.appendChild(announcements);
+	main.appendChild(trending);
+}
 
 
 
