@@ -1,3 +1,42 @@
+export const announcementSamples = [
+	{
+		title: "Site Maintenance",
+		message: "This a sample message about system maintenace to test the layout."
+	},
+	{
+                title: "Community Share Day",
+                message: "This a sample message about system maintenace to test the layout."
+        },
+	{
+                title: "Updated Privacy Policy",
+                message: "This a sample message about system maintenace to test the layout."
+        },
+
+];
+
+export const trendingSamples = [
+	{
+		picture: "",
+		username: "@tegan",
+		project: "World Peace Builder"
+	},
+	{
+		picture: "",
+		username: "@morgan",
+		project: "Super Cool Project"
+	},
+	{
+		picture: "",
+		username: "@kendall",
+		project: "Life Changing App"
+	},
+	{
+		picture: "",
+		username: "@alex",
+		project: "No Traffic Master"
+	}
+];
+
 export const projectSamples = [
     {
         title: "Super Cool Project",

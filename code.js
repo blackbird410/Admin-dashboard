@@ -1,4 +1,4 @@
-import { projectSamples } from "./data.js"
+import { projectSamples, announcementSamples, trendingSamples } from "./data.js"
 
 const body = document.body;
 addLayout();
@@ -6,6 +6,8 @@ addSidebarElements();
 addHeaderElements();
 addMainElements();
 addProjects();
+addAnnouncements();
+addTrendings();
 
 
 function addLayout() {
@@ -40,6 +42,7 @@ function addSidebarElements() {
 	help.classList.add('sidebar-help');
 	
 	const logoIcon = document.createElement('div');
+	logoIcon.style.backgroundImage = "url('icons/dashboard.svg')";
 	const logoText = document.createElement('div');
 	logoText.textContent = 'Dashboard';
 	logoIcon.classList.add('icon');
@@ -59,6 +62,7 @@ function addSidebarElements() {
 		itemIcon.classList.add('icon');
 		itemText.classList.add('icon-name');
 
+		itemIcon.style.backgroundImage = `url('icons/${item.toLowerCase()}.svg')`;
 		itemText.textContent = item;
 
 		itemContainer.appendChild(itemIcon);
@@ -76,7 +80,8 @@ function addSidebarElements() {
                 itemIcon.classList.add('icon');
                 itemText.classList.add('icon-name');
 
-                itemText.textContent = item;
+                itemIcon.style.backgroundImage = `url('icons/${item.toLowerCase()}.svg')`;
+		itemText.textContent = item;
 
                 itemContainer.appendChild(itemIcon);
                 itemContainer.appendChild(itemText);
@@ -126,6 +131,7 @@ function addHeaderElements(){
 	adminWelcome.classList.add('admin-welcome');
 	adminWelcome.appendChild(adminIcon.cloneNode(true));
 	const hello = document.createElement('div');
+	hello.setAttribute('id', 'hello');
 	hello.textContent = "Hi there,";
 	adminWelcome.appendChild(hello);
 	const name = adminName.cloneNode(true);
@@ -154,16 +160,16 @@ function addMainElements() {
 
 	const projects = document.createElement('div');
 	const announcements = document.createElement('div');
-	const trending = document.createElement('div');
+	const trendings = document.createElement('div');
 
 	projects.classList.add('projects');
 	announcements.classList.add('announcements');
-	trending.classList.add('trending');
+	trendings.classList.add('trendings');
 
 	const headers = ['Your Projects', 'Announcements', 'Trending'];
 	headers.forEach(headerTitle => {
 		const header = document.createElement('div');
-		header.classList.add('header');
+		header.classList.add('main-header');
 		header.textContent = headerTitle;
 
 		switch(headerTitle)
@@ -175,7 +181,7 @@ function addMainElements() {
 				announcements.appendChild(header);
 				break;
 			case 'Trending':
-				trending.appendChild(header);
+				trendings.appendChild(header);
 				break;
 			default:
 				break;
@@ -184,7 +190,7 @@ function addMainElements() {
 
 	main.appendChild(projects);
 	main.appendChild(announcements);
-	main.appendChild(trending);
+	main.appendChild(trendings);
 }
 
 function addProjects() {
@@ -196,11 +202,10 @@ function addProjects() {
 		const description = document.createElement('p');
 
 		p.classList.add('project');
-		title.classList.add('project-title');
-		description.classList.add('project-description');
+		title.classList.add('title');
+		description.classList.add('description');
 
 		title.textContent = project.title;
-		console.log(project.title);
 		description.textContent = project.description;
 
 		p.appendChild(title);
@@ -209,7 +214,51 @@ function addProjects() {
 	});
 }
 
+function addAnnouncements() {
+	const container = document.querySelector('.announcements');
 
+	announcementSamples.forEach(announcement => {
+		const a = document.createElement('div');
+		const title = document.createElement('div');
+		const message = document.createElement('p');
+
+		a.classList.add('announcement');
+		title.classList.add('title');
+		message.classList.add('description');
+
+		title.textContent = announcement.title;
+		message.textContent = announcement.message;
+		
+		a.appendChild(title);
+		a.appendChild(message);
+		container.appendChild(a);
+	});
+}
+
+function addTrendings() {
+	const container = document.querySelector('.trendings');
+
+	trendingSamples.forEach(trending => {
+		const t = document.createElement('div');
+		const icon = document.createElement('div');
+		const username = document.createElement('div');
+		const project = document.createElement('div');
+
+		t.classList.add('trending');
+		icon.classList.add('icon');
+		username.classList.add('username');
+		project.classList.add('trending-project');
+
+		icon.style.backgroundImage = trending.picture;
+		username.textContent = trending.username;
+		project.textContent = trending.project;
+
+		t.appendChild(icon);
+		t.appendChild(username);
+		t.appendChild(project);
+		container.appendChild(t);
+	});
+}
 
 
 
