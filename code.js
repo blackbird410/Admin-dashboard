@@ -1,9 +1,12 @@
-// Adding layout elements
+import { projectSamples } from "./data.js"
+
 const body = document.body;
 addLayout();
 addSidebarElements();
 addHeaderElements();
 addMainElements();
+addProjects();
+
 
 function addLayout() {
 	const sidebar = document.createElement('div');
@@ -179,13 +182,32 @@ function addMainElements() {
 		}
 	});
 
-
 	main.appendChild(projects);
 	main.appendChild(announcements);
 	main.appendChild(trending);
 }
 
+function addProjects() {
+	const container = document.querySelector('.projects');
 
+	projectSamples.forEach(project => {
+		const p = document.createElement('div');
+		const title = document.createElement('div');
+		const description = document.createElement('p');
+
+		p.classList.add('project');
+		title.classList.add('project-title');
+		description.classList.add('project-description');
+
+		title.textContent = project.title;
+		console.log(project.title);
+		description.textContent = project.description;
+
+		p.appendChild(title);
+		p.appendChild(description);
+		container.appendChild(p);
+	});
+}
 
 
 

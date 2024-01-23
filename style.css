@@ -86,7 +86,7 @@ body > div {
 	grid-template-rows: 1fr 2fr;
 	grid-template-columns: 2fr 1fr;
 	padding: 12px 2rem 12px var(--padding-right);
-	gap: 12px;
+	/*gap: 12px; */
 	font-weight: 300;
 }
 
@@ -144,7 +144,7 @@ body > div {
 }
 
 #welcome-admin-name {
-	font-size: 1.5rem;
+	font-size: 1.4rem;
 
 	grid-column: 2;
 }
@@ -188,6 +188,27 @@ body > div {
 
 .projects {
 	grid-row: 1 / -1;
+
+	display: grid;
+	grid-template-rows: 30px repeat(3, 1fr);
+	grid-template-columns: 1fr 1fr;
+	gap: var(--main-gap);
+}
+
+.projects .header {
+	grid-column: span 2;
+
+}
+
+.project {
+	background-color: white;
+	padding: 12px;
+	border-radius: 12px;
+	border-left: 3px solid var(--admin-icon-color);
+}
+
+.project p {
+	font-weight: 300;
 }
 
 .announcements {
