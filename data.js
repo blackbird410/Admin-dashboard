@@ -16,22 +16,22 @@ export const announcementSamples = [
 
 export const trendingSamples = [
 	{
-		picture: "",
+		picture: "profile/2.ico",
 		username: "@tegan",
 		project: "World Peace Builder"
 	},
 	{
-		picture: "",
-		username: "@morgan",
+		picture: "profile/1.ico",
+		username: "@solomon",
 		project: "Super Cool Project"
 	},
 	{
-		picture: "",
+		picture: "profile/3.ico",
 		username: "@kendall",
 		project: "Life Changing App"
 	},
 	{
-		picture: "",
+		picture: "profile/4.ico",
 		username: "@alex",
 		project: "No Traffic Master"
 	}

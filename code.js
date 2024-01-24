@@ -95,7 +95,7 @@ function addSidebarElements() {
 }
 
 
-function addHeaderElements(){
+function addHeaderElements() {
 	const header = document.querySelector('.header');
 	const searchContainer = document.createElement('div');
 	const notificationContainer = document.createElement('div');
@@ -104,6 +104,7 @@ function addHeaderElements(){
 
 	const searchIcon = document.createElement('div');
 	searchIcon.classList.add('icon');
+	searchIcon.style.backgroundImage = "url('icons/magnify.svg')";
 
 	const searchBar = document.createElement('input');
 	searchBar.setAttribute('id', 'search');
@@ -114,14 +115,17 @@ function addHeaderElements(){
 
 	const notificationIcon = document.createElement('div');
 	notificationIcon.classList.add('icon');
+	notificationIcon.style.backgroundImage = "url('icons/bell-ring.svg')";
 
-	const adminIcon = document.createElement('div');
-	adminIcon.classList.add('icon');
+	const adminIcon = document.createElement('img');
+	adminIcon.classList.add('avatar', 'icon');
+	adminIcon.setAttribute('src', 'profile/1.ico');
+	//adminIcon.style.backgroundImage = "url('profile/1.ico')";
 
 	const adminName = document.createElement('div');
 	adminName.classList.add('admin-name');
 	adminName.setAttribute('id', 'notif-admin-name');
-	adminName.textContent = 'Neil Rigaud';
+	adminName.textContent = 'Peter Solomon';
 
 	notificationContainer.classList.add('notification-container');
 	notificationContainer.appendChild(notificationIcon);
@@ -137,7 +141,7 @@ function addHeaderElements(){
 	const name = adminName.cloneNode(true);
 	name.removeAttribute('id');
 	name.setAttribute('id', 'welcome-admin-name');
-	name.textContent = "Neil Rigaud (@blackbird410)"
+	name.textContent = `${adminName.textContent} (@solomon)`
 	adminWelcome.appendChild(name);
 
 	btnContainer.classList.add('btn-container');
@@ -240,16 +244,16 @@ function addTrendings() {
 
 	trendingSamples.forEach(trending => {
 		const t = document.createElement('div');
-		const icon = document.createElement('div');
+		const icon = document.createElement('img');
 		const username = document.createElement('div');
 		const project = document.createElement('div');
 
 		t.classList.add('trending');
-		icon.classList.add('icon');
+		icon.classList.add('icon', 'avatar');
 		username.classList.add('username');
 		project.classList.add('trending-project');
 
-		icon.style.backgroundImage = trending.picture;
+		icon.setAttribute('src', trending.picture);
 		username.textContent = trending.username;
 		project.textContent = trending.project;
 

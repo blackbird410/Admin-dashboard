@@ -51,7 +51,7 @@ body > div {
 }
 
 #logo .icon,
-.admin-welcome .icon {
+.admin-welcome img {
 	height: var(--dashboard-icon-size);
 	width: var(--dashboard-icon-size);
 	margin-right: var(--icon-gap);
@@ -86,7 +86,15 @@ body > div {
 	grid-template-columns: 2fr 1fr;
 	padding: 12px 2rem 12px var(--padding-right);
 	/*gap: 12px; */
-	font-weight: 300;
+}
+
+
+.admin-welcome > .avatar.icon {
+	vertical-align: middle;
+}
+
+.avatar.icon {
+	filter: invert(0);
 }
 
 .header > div {
@@ -97,7 +105,7 @@ body > div {
 }
 
 .header .icon {
-	background-color: gray;
+	filter: invert(0);
 }
 
 .search-container,
@@ -257,7 +265,6 @@ body > div {
 
 	width: var(--dashboard-icon-size);
 	height: var(--dashboard-icon-size);
-	background-color: gray;
 	align-self: center; 
 }
 
